@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOURSES LIVRES</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        .logo, footer {
+            text-align: center;
+        }
+        hr {
+            margin-bottom: 2em;
+        }
+        .actions {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .btn {
+            background-color: #fff;
+            padding: .5em;
+        }
+
+        .Preté {
+            background-color: red;
+        }
+
+        .En Stock {
+            background-color: green;
+        }
+
+        .Rupture {
+            background-color: rgb(10, 189, 243);
+        }
+        .Preté,
+        .EnStock,
+        .Rupture {
+            color: #fff;
+            text-align: center;
+            border-radius: 2em;
+            font-weight: bold;
+        }
+        button {
+            margin: auto;
+            width: inherit;
+            background-color: goldenrod;
+            border: none;
+        }
+
+        .message{
+            background-color:  #fff;
+            border: 1px solid rgba(0,0,0, 0.15);
+            border-radius: 0.5em;
+            padding: 0.15em;
+            margin: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCgBxIVF4O7V--xHlcaQmDG_RP8HPPds1hbQ&usqp=CAU" alt="logo">
+        </div>
+        <hr>
+
+        <div class="container">
+            <form action="/livres/create" method="POST">
+                <div class="grid">
+                    <label for="firstname">
+                        <input type="text" id="title" name="title" placeholder="Titre du livre" required>
+                    </label>
+                    <select id="status" name="status" required>
+                        <option value="" selected>Selectionnez un statut</option>
+                        <option value="EnStock">en stock</option>
+                        <option value="Rupture">rupture</option>
+                        <option value="Preté">preté</option>
+                    </select>
+                </div>
+                <label for="description">Description courte du livre</label>
+                <input type="text" id="description" name="description" placeholder="Roman de Guillhaume Musso" required>
+                <button type="submit">Enregistrer</button>
+            </form>
+        </div>
+        <hr>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Statut</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%if(livres.length){%>
+                    <% livres.forEach(function(livre){ %>
+                        <tr>
+                            <td>
+                                <%= livre.title %>
+                            </td>
+                            <td>
+                                <%= livre.description %>
+                            </td>
+                            <td>
+                                <p class="<%= livre.status %>">
+                                    <%= livre.status %>
+                                </p>
+                            </td>
+                            <td class="actions">
+                                <a class="btn" href="/livres/delete/<%= livre.id %>">
+                                    <img src="https://api.iconify.design/ic:baseline-delete-forever.svg"
+                                        alt="Supprimer">
+                                </a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                            <% }else{ %>
+                                <tr>
+                                    <td colspan="3">No livres</td>
+                                </tr>
+                                <% } %>
+            </tbody>
+        </table>
+        <footer>
+            <p>Cours de NodeJS - <a href="https://www.agiliteach.org">Agiliteach</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>
