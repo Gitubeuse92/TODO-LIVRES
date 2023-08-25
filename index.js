@@ -58,7 +58,8 @@ app.get('/livres/delete/:id', (req, res) => {
 
 app.get('/livre/:id', (req, res) => {
     const livre = JSON.parse(fs.readFileSync('db.json')).livre; 
-    res.render('/livre/:id');
+    res.render('/livre');
+    console.log(livre);
 });
 
 
