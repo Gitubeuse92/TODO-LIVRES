@@ -42,21 +42,23 @@
             background-color: goldenrod;
             border: none;
         }
-th{
-    align-self: center;
+p{
+    padding-top: 2rem;
 }
-        td{
-            width: 20rem;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
+.span{
+    padding: 1rem;
 }
 .container{
+    display: flex;
     text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 img{
     max-width: 13rem;
 }
+
     </style>
 </head>
 
@@ -76,7 +78,7 @@ img{
                             <p>
                                 <%= livre.description %>
                             </p>
-                            <div>
+                            <div class="span">
                                 <span class="<%= livre.status %>">
                                     <%= livre.status %>
                                 </span>
