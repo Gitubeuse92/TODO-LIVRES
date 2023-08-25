@@ -61,7 +61,9 @@ th{
   overflow:hidden;
   text-overflow:ellipsis;
 }
-
+.container{
+    text-align: center;
+}
 
     </style>
 </head>
@@ -74,16 +76,15 @@ th{
         <hr>
             
             <body>
-                <%if(livre.length){%>
-                    <% livre.forEach(function(livre){ %>
+                <div class="container">
                             <h1>
                                 <%= livre.title %>
                             </h1>
-                            
+                            <img src="<%= livre.img %>" alt="img">
                             <p>
                                 <%= livre.description %>
                             </p>
-                            <div container>
+                            <div>
                                 <span class="<%= livre.status %>">
                                     <%= livre.status %>
                                 </span>
@@ -91,13 +92,7 @@ th{
                                     <%= livre.author %>
                                 </span>
                             </div>
-                        
-                        <% }) %>
-                            <% }else{ %>
-                                
-                                    <h1 colspan="3">No livres</>
-                                
-                                <% } %>
+                        </div> 
             </body>
         <footer>
             <p>Cours de NodeJS - <a href="https://www.agiliteach.org">Agiliteach</a></p>
