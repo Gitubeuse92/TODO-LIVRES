@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BOURSES LIVRES</title>
+    <title>BOURSE de LIVRES</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
     <style>
         .logo, footer {
@@ -58,10 +58,13 @@
             background-color: goldenrod;
             border: none;
         }
-   
-        th{
+        td{
             text-align: center;
             align-items: center;
+        }
+        .description{
+            height: 5rem;
+            text-overflow: ellipsis;
         }
     </style>
 </head>
@@ -118,7 +121,7 @@
                             <td>
                                 <%= livre.author %>
                             </td>
-                            <td>
+                            <td class="description">
                                 <%= livre.description %>
                             </td>
                             <td>
@@ -127,7 +130,7 @@
                                 </p>
                             </td>
                             <td class="actions">
-                                <a class="btn" href="/livre<%= livre.id %>">
+                                <a class="btn" href="/livre/:id">
                                     <iconify-icon icon="ion:eye-sharp"width="32" alt="Voir"></iconify-icon>
                                 </a>
 

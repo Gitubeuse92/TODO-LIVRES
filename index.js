@@ -47,25 +47,19 @@ app.post('/livres/create', (req, res) => {
         status: req.body.status,
     };
     livres.push(newlivre);
-    fs.writeFileSync('db.json', JSON.stringify({ livres }));
-    // let message = 'La tâche a bien été ajoutée';
     res.redirect('/livres');
 });
 
 app.get('/livres/delete/:id', (req, res) => {
     const livres = JSON.parse(fs.readFileSync('db.json')).livres; 
     const newlivres = livres.filter(livre => livre.id !== parseInt(req.params.id)); 
-    fs.writeFileSync('db.json', JSON.stringify({ livres: newlivres }));
-    // let message = 'La tâche a bien été supprimée';
     res.redirect('/livres');
 });
 
-app.get('/livre:id', (req, res) => {
-    const livre = JSON.parse(fs.readFileSync('db.json')).livres; 
-    res.redirect('/livre');
+app.get('/livre/:id', (req, res) => {
+    const livre = JSON.parse(fs.readFileSync('db.json')).livre; 
+    res.render('/livre/:id');
 });
-
-
 
 
 // Je suis le dernier de la liste !
