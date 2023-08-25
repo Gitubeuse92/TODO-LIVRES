@@ -25,10 +25,15 @@
 
         .btn {
             background-color: #fff;
-            padding: .5em;
+            padding: 
+            5em;
         }
 
-        .Prete {
+        .poub{
+            color: black;
+        }
+
+        .Rupture {
             background-color: red;
         }
 
@@ -36,7 +41,7 @@
             background-color: green;
         }
 
-        .Rupture {
+        .Prete {
             background-color: rgb(10, 189, 243);
         }
         .Prete,
@@ -53,16 +58,8 @@
             background-color: goldenrod;
             border: none;
         }
-
-        .message{
-            background-color:  #fff;
-            border: 1px solid rgba(0,0,0, 0.15);
-            border-radius: 0.5em;
-            padding: 0.15em;
-            margin: auto;
-            text-align: center;
-        }
-        thead th{
+   
+        th{
             text-align: center;
             align-items: center;
         }
@@ -92,6 +89,7 @@
                         <option value="Prete">preté</option>
                     </select>
                 </div>
+                <label for="img"><input type="text" id="img" name="img" placeholder="url image" required></label>
                 <label for="description">
                <textarea name="description" id="description" cols="30" rows="10" placeholder="Description du livre" required></textarea>
                     </label>
@@ -130,12 +128,12 @@
                             </td>
                             <td class="actions">
                                 <a class="btn" href="/livre<%= livre.id %>">
-                                    <iconify-icon icon="ion:eye-sharp" alt="Voir"></iconify-icon>
+                                    <iconify-icon icon="ion:eye-sharp"width="32" alt="Voir"></iconify-icon>
                                 </a>
 
-                                <a class="btn" href="/livres/delete/<%= livre.id %>">
-                                    <img src="https://api.iconify.design/ic:baseline-delete-forever.svg"
-                                        alt="Supprimer">
+                                <a class="btn poub" href="/livres/delete/<%= livre.id %>"alt="Supprimer">
+                                    <iconify-icon icon="material-symbols:delete" width="32"></iconify-icon>
+                                        
                                 </a>
                             </td>
                         </tr>

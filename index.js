@@ -42,6 +42,7 @@ app.post('/livres/create', (req, res) => {
         id: Date.now(), 
         title: req.body.title,
         author: req.body.author,
+        img: req.body.img,
         description: req.body.description,
         status: req.body.status,
     };
@@ -59,9 +60,9 @@ app.get('/livres/delete/:id', (req, res) => {
     res.redirect('/livres');
 });
 
-app.get('/livres/:id', (req, res) => {
-    const livres = JSON.parse(fs.readFileSync('db.json')).livres; 
-    res.redirect('/livre/:id');
+app.get('/livre:id', (req, res) => {
+    const livre = JSON.parse(fs.readFileSync('db.json')).livres; 
+    res.redirect('/livre');
 });
 
 
