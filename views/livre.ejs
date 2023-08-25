@@ -7,22 +7,13 @@
     <title>BOURSE de LIVRES</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
     <style>
-        .logo, footer {
-            text-align: center;
-        }
-        hr {
-            margin-bottom: 2em;
-        }
-     
-        .actions {
+        body{
             display: flex;
-            justify-content: space-around;
+            flex-direction: column;
             align-items: center;
         }
-
-        .btn {
-            background-color: #fff;
-            padding: .5em;
+        .logo, footer {
+            text-align: center;
         }
 
         .Rupture {
@@ -45,8 +36,9 @@
             font-weight: bold;
         }
         button {
+            align-self: center;
             margin: auto;
-            width: inherit;
+            width: 15rem;
             background-color: goldenrod;
             border: none;
         }
@@ -93,6 +85,9 @@ img{
                                 </span>
                             </div>
                         </div> 
+                        <a class="btn" href="/livres"><button> 
+                            <iconify-icon icon="icon-park:return" width="32"></iconify-icon>
+                        </button></a>
             </body>
         <footer>
             <p>Cours de NodeJS - <a href="https://www.agiliteach.org">Agiliteach</a></p>
