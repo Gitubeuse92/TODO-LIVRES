@@ -56,10 +56,10 @@ app.get('/livres/delete/:id', (req, res) => {
     res.redirect('/livres');
 });
 
-app.get('/livre/:id', (req, res) => {
-    const livre = JSON.parse(fs.readFileSync('db.json')).livre; 
-    res.render('/livre');
-    console.log(livre);
+app.get('/livres/:id', (req, res) => {
+    const livres = JSON.parse(fs.readFileSync('db.json')).livres; 
+    const livre = livres.find(l => parseInt(l.id)=== parseInt(req.params.id));
+    res.render('livre', { livre });
 });
 
 

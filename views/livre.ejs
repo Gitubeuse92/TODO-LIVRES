@@ -61,6 +61,8 @@ th{
   overflow:hidden;
   text-overflow:ellipsis;
 }
+
+
     </style>
 </head>
 
@@ -70,54 +72,33 @@ th{
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCgBxIVF4O7V--xHlcaQmDG_RP8HPPds1hbQ&usqp=CAU" alt="logo">
         </div>
         <hr>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th scope="col">Titre</th>
-                    <th scope="col">Auteur</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Statut</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <%if(livres.length){%>
-                    <% livres.forEach(function(livre){ %>
-                        <tr>
-                            <td>
+            
+            <body>
+                <%if(livre.length){%>
+                    <% livre.forEach(function(livre){ %>
+                            <h1>
                                 <%= livre.title %>
-                            </td>
-                            <td>
-                                <%= livre.author %>
-                            </td>
-                            <td>
+                            </h1>
+                            
+                            <p>
                                 <%= livre.description %>
-                            </td>
-                            <td>
-                                <p class="<%= livre.status %>">
+                            </p>
+                            <div container>
+                                <span class="<%= livre.status %>">
                                     <%= livre.status %>
-                                </p>
-                            </td>
-                            <td class="actions">
-                                <iconify-icon icon="ion:eye-sharp"><a class="btn" href="/livre<%= livre.id %>">
-                                    </iconify-icon>
-                                </a>
-
-                                <a class="btn" href="/livres/delete/<%= livre.id %>">
-                                    <img src="https://api.iconify.design/ic:baseline-delete-forever.svg"
-                                        alt="Supprimer">
-                                </a>
-                            </td>
-                        </tr>
+                                </span>
+                                <span>
+                                    <%= livre.author %>
+                                </span>
+                            </div>
+                        
                         <% }) %>
                             <% }else{ %>
-                                <tr>
-                                    <td colspan="3">No livres</td>
-                                </tr>
+                                
+                                    <h1 colspan="3">No livres</>
+                                
                                 <% } %>
-            </tbody>
-        </table>
+            </body>
         <footer>
             <p>Cours de NodeJS - <a href="https://www.agiliteach.org">Agiliteach</a></p>
         </footer>
